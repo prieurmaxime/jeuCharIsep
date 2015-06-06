@@ -2,18 +2,18 @@
 public class player {
 
 	private String nom,couleur;
-	double posX;
+	double posX,inclinaisonCanon;
 	
-	//public player(){
+	public player(){
 		
-	//}
+	}
 	
 	
-	public void nouveauJoueur(String nplayer,String ncolor,double nposXTank){
+	public void joueur(String nplayer,String ncolor,double nposXTank,double angleCanon){
 		nom = nplayer;
 		couleur = ncolor;
 		posX = nposXTank;
-		
+		inclinaisonCanon= angleCanon;
 	}
 	
 	
@@ -27,7 +27,15 @@ public class player {
 	public double getPosX(){
 		return posX;
 	}
+	public double getinclinaisonCanon(){
+		return inclinaisonCanon;
+	}
+	
+	public void setposX(double sposX)  {
+	    posX = sposX;
+	}	
+	public void setinclinaisonCanon(double sinclinaisonCanon)  {
+	    inclinaisonCanon = sinclinaisonCanon;
+	}
 }
-	
-	
 	

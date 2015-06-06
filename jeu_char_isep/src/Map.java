@@ -23,8 +23,6 @@ public class Map {
 		for(i=2;i<=1548;i++){
 			mapX[i] = i;
 			mapY[i] = 500+300*Math.cos(0.01*i);
-			System.out.println(mapX[i]);
-			System.out.println(mapY[i]);
 		}
 
 
@@ -33,9 +31,7 @@ public class Map {
 	
 	public void drawMap(){
 		
-		//double test[]={100,200,200,100};
-		//double test2[]={100,100,200,200};
-		//StdDraw.filledPolygon(test,test2);
+
 		StdDraw.setPenColor(StdDraw.GREEN);
 		StdDraw.filledPolygon(mapX,mapY);
 	}

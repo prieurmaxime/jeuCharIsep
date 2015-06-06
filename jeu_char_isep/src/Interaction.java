@@ -3,7 +3,9 @@ import java.awt.event.KeyEvent;
 
 public class Interaction {
 
-	double posXTank;
+
+	double inclinaisonCanon;
+	double posX;
 	
 	public Interaction(){
 	
@@ -11,28 +13,53 @@ public class Interaction {
 	
 	public void deplacement(player numJoueur){
 		
-		double posX = numJoueur.getPosX();
+		posX = numJoueur.getPosX();
+		inclinaisonCanon = numJoueur.getinclinaisonCanon();
 		
 		if (StdDraw.isKeyPressed(KeyEvent.VK_LEFT)){ //si fleche gauche appuyée
 			
-			if(posX<=1){
+			if(posX<=11){
 			}
 			else{
-				posX --;
+				posX = posX -1	;
+				numJoueur.setposX(posX);
 			}
+
 		}
 		
 		if (StdDraw.isKeyPressed(KeyEvent.VK_RIGHT)){ //si fleche gauche appuyée
 			
-			if(posX>=1549){
+			if(posX>=1540){
 			}
 			else{
-				posX ++;
+				posX =posX +1;
+				numJoueur.setposX(posX);
 			}
+
+		}
+		
+		if(StdDraw.isKeyPressed(KeyEvent.VK_UP)){ 
 			
+			if(inclinaisonCanon<=190){
+				inclinaisonCanon =inclinaisonCanon +1;
+				numJoueur.setinclinaisonCanon(inclinaisonCanon);
+			}
+			else{
+
+			}
+
+		}
+		if(StdDraw.isKeyPressed(KeyEvent.VK_DOWN)){ 
+			
+			if(inclinaisonCanon>=-10){
+				inclinaisonCanon =inclinaisonCanon -1;
+				numJoueur.setinclinaisonCanon(inclinaisonCanon);
+			}
+			else{
+
+			}
+
 		}
 	}
-	
-	
-	
+
 }
