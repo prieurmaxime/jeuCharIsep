@@ -56,10 +56,18 @@ public class Interaction {
 				numJoueur.setinclinaisonCanon(inclinaisonCanon);
 			}
 			else{
-
 			}
-
 		}
+		/*if(StdDraw.isKeyPressed(KeyEvent.VK_SPACE)){ 
+			
+			if(inclinaisonCanon>=-10){
+				inclinaisonCanon =inclinaisonCanon -1;
+				numJoueur.setinclinaisonCanon(inclinaisonCanon);
+			}
+			else{
+			}
+		}*/
+		
 	}
 
 }
