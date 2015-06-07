@@ -27,6 +27,9 @@ public class tank {
 	public double getposXTank(){
 		return posXTank;
 	}
+	public double getposY(){
+		return posYTank;
+	}
 	
 	public double getinclinaisonCanon(){
 		return inclinaisonCanon;

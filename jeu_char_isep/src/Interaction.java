@@ -11,7 +11,7 @@ public class Interaction {
 	
 	}
 	
-	public void deplacement(player numJoueur){
+	public void deplacement(player numJoueur,){
 		
 		posX = numJoueur.getPosX();
 		inclinaisonCanon = numJoueur.getinclinaisonCanon();
@@ -58,15 +58,10 @@ public class Interaction {
 			else{
 			}
 		}
-		/*if(StdDraw.isKeyPressed(KeyEvent.VK_SPACE)){ 
+		if(StdDraw.isKeyPressed(KeyEvent.VK_SPACE)){ 
 			
-			if(inclinaisonCanon>=-10){
-				inclinaisonCanon =inclinaisonCanon -1;
-				numJoueur.setinclinaisonCanon(inclinaisonCanon);
-			}
-			else{
-			}
-		}*/
+			shoot.drawObus(j1.getPosX(), t1.getposY(), j1.getinclinaisonCanon(), 10, 0, map1);
+		}
 		
 	}
 

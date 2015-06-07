@@ -11,8 +11,11 @@ public class main_tank {
 		map1.mapRandom();
 		player j1 = new player();
 		player j2 = new player();
+
 		j1.joueur("Maxime","ORANGE",20+Math.random()*1510,0);
 		j2.joueur("Hadrien","RED",20+Math.random()*1510,0);
+		
+		Tir shoot = new Tir();
 		
 		tank t1 = new tank();
 		tank t2 = new tank();

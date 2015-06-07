@@ -1,8 +1,8 @@
 
 public class Map {
 	
-	public double mapX[] = new double[1551];
-	public double mapY[] = new double[1551];
+	public double mapX[] = new double[1550];
+	public double mapY[] = new double[1550];
 	int i =0;
 	
 	public Map(){
@@ -13,14 +13,14 @@ public class Map {
 		
 		mapX[0]=0;
 		mapY[0]=0;
-		mapX[1]=0;
+		/*mapX[1]=0;
 		mapY[1]=500;
 		mapX[1549]=1549;
-		mapY[1549]=500;
-		mapX[1550]=1549;
-		mapY[1550]=0;
+		mapY[1549]=500;*/
+		mapX[1549]=1549;
+		mapY[1549]=0;
 		
-		for(i=2;i<=1548;i++){
+		for(i=1;i<=1548;i++){
 			mapX[i] = i;
 			mapY[i] = 500+300*Math.cos(0.01*i);
 		}

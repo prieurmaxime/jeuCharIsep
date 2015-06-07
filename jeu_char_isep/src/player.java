@@ -30,12 +30,13 @@ public class player {
 	public double getinclinaisonCanon(){
 		return inclinaisonCanon;
 	}
-	
+	//setter
 	public void setposX(double sposX)  {
 	    posX = sposX;
 	}	
 	public void setinclinaisonCanon(double sinclinaisonCanon)  {
 	    inclinaisonCanon = sinclinaisonCanon;
 	}
+	
 }
 	
