@@ -7,21 +7,20 @@ public class Interaction {
 	double inclinaisonCanon;
 	double posX;
 	
-	public double trajectoireObusX[];
-	public double trajectoireObusY[];
-	public double positionObusX[];
-	public double positionObusY[];
+	double trajectoireObusX[] = new double[1500];
+	double trajectoireObusY[] = new double[1500];
+	double positionObusX[ ]= new double[1500];
+	double positionObusY[] = new double[1500];
 	public double angleTir;
 	public double vInit;
 	public double wind;
 	public double Xorigine;
 	public double Yorigine;
-	int i =0;
+	int i =1;
 	double gravite = 10;
 	double obusX;
 	double obusY;
 	double mapY[];
-	
 	
 	
 	public Interaction(){
@@ -79,26 +78,33 @@ public class Interaction {
 	}
 	
 	public void commande(player numJoueur,double puissance,double vent,Map nomMap){
+
 		if(StdDraw.isKeyPressed(KeyEvent.VK_SPACE)){ 
 			
 			
 			Xorigine = numJoueur.getPosX();
 			Yorigine = numJoueur.getPosY();
+			/*System.out.println("Y"+Yorigine);
+			System.out.println("X"+Xorigine);*/
 			trajectoireObusX[0] = Xorigine;
 			trajectoireObusY[0] = Yorigine;
+
 			angleTir = numJoueur.getinclinaisonCanon();
 			vInit = puissance;
 			wind = vent;
 			mapY = nomMap.getmapY();
 			
-			for(i=1;i<=1500;i++){
+			/*for(i=1;mapY[(int)obusX]>=obusY || obusX>=0 || obusX <= 1500;i++){
 				trajectoireObusX[i]=(vInit*Math.cos(angleTir))*i;
+				System.out.println("X"+trajectoireObusX[i]);
 				trajectoireObusY[i]=(-1/2)*gravite*i*i+(vInit*Math.sin(angleTir))*i;
-			}
+				System.out.println("Y"+trajectoireObusY[i]);
+				i++;
+			}*/
 			
-			for(i=0;mapY[(int)obusX]>=obusY || obusX>=0 || obusX <= 1500;i++){
-				positionObusX[i] = Xorigine + trajectoireObusX[i];	
-				positionObusY[i] = Yorigine + trajectoireObusY[i];
+			for(i=1;mapY[(int)obusX]>=obusY || obusX>=0 || obusX <= 1500;i++){
+				positionObusX[i] = Xorigine + (vInit*Math.cos(angleTir))*i;
+				positionObusY[i] = Yorigine + (-1/2)*gravite*i*i+(vInit*Math.sin(angleTir))*i;
 			}
 			
 			for(i=1;mapY[(int)obusX]>=obusY || obusX>=0 || obusX <= 1500;i++){
@@ -107,6 +113,7 @@ public class Interaction {
 				obusY = positionObusY[i];
 				
 				StdDraw.picture(obusX, obusY, "obus.png", 35, 7, 0);
+				StdDraw.show(10);
 			
 		}
 	}
