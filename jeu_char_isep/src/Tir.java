@@ -1,4 +1,4 @@
-import java.awt.event.KeyEvent;
+
 
 public class Tir {
 
@@ -22,15 +22,17 @@ public class Tir {
 	double obusX;
 	double obusY;
 	double mapY[];
-	int afinidejouer;
-	int tir;
-	int choc;
+	boolean afinidejouer;
+	boolean tir;
+	int chocX;
+	int chocY;
+	boolean destru;
 	
-	public void commande(Interaction cmd,player numJoueur,double puissance,double vent,Map nomMap,Interaction finTir){
+	public void commande(Interaction cmd,player numJoueur,double puissance,double vent,Map nomMap,destructionTerrain destruction,Interaction finTir, player joue){
 
-		int tir = cmd.getcmdTir();
+		tir = cmd.getcmdTir();
 		
-		if(tir==1){
+		if(tir == true){
 		
 		Xorigine = numJoueur.getPosX();
 		Yorigine = numJoueur.getPosY();
@@ -41,12 +43,10 @@ public class Tir {
 		wind = vent;
 		mapY = nomMap.getmapY();
 		gravite = 0.1;
-		
-		if(StdDraw.isKeyPressed(KeyEvent.VK_SPACE)){ 
 			
 
 			for(i=0;i<500;i++){
-				positionObusY[i] = Yorigine+20-0.5*gravite*i*i+vInit*Math.sin(angleTir)*i;
+				positionObusY[i] = Yorigine + 20-0.5*gravite*i*i+vInit*Math.sin(angleTir)*i;
 				positionObusX[i] = Xorigine + (vInit*Math.cos(angleTir))*i;
 			}
 			
@@ -54,24 +54,43 @@ public class Tir {
 				
 				obusX = positionObusX[i];
 				obusY = positionObusY[i];
-				choc = i;
+				
+				if(obusY<=mapY[(int)obusX]){ // COLLISION MAP
+					chocX = (int)obusX;	
+					chocY = (int)obusY;
+					destru = true;
+				}
+				else if (obusX>=0 && obusX <= 1500 && obusY>0){//SORTIE DE MAP*
+					destru = false;
+					afinidejouer = true;
+				}
 
-				StdDraw.picture(obusX, obusY, "obus.png", 35, 7, 0);
-				StdDraw.show(10);
+				StdDraw.setPenColor(StdDraw.BLACK);
+				StdDraw.filledCircle(obusX, obusY,	15);
+				//StdDraw.picture(obusX, obusY, "obus.png", 35, 7, 0);
+				StdDraw.show(5);
+				StdDraw.setPenColor(StdDraw.WHITE);
+				StdDraw.filledCircle(obusX, obusY,	16);		
+				StdDraw.show(5);
 			}
 			
-			afinidejouer=1;
+			destruction.setdestru(destru);
+			destruction.setafinidejouer(afinidejouer);
 			
 		}
-		else{
-		
-		}
-		tir=0;
+
+		tir = false;
 		finTir.setcmdTir(tir);
 	}
-	}
-	public int getchoc(){
-		return choc;
-	}
 	
+	public int getchocX(){
+		return chocX;
+	}
+	public int getchocY(){
+		return chocY;
+	}
+	public boolean getdestru(){
+		return destru;
+	}
+
 }

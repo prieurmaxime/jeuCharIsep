@@ -6,7 +6,8 @@ public class Interaction {
 
 	double inclinaisonCanon;
 	double posX;
-	int cmdTir;
+	boolean cmdTir;
+	double power;
 
 	
 	public Interaction(){
@@ -61,17 +62,22 @@ public class Interaction {
 			}
 		}
 		if(StdDraw.isKeyPressed(KeyEvent.VK_SPACE)){ 
-			cmdTir = 1;
+			
+			cmdTir = true;
 			
 		}
 		
 	}
 	//getter
-	public int getcmdTir(){
+	public boolean getcmdTir(){
 		return cmdTir;
 	}
+	public double getpower(){
+		power = 10;
+		return power;
+	}
 	//setter
-	public void setcmdTir(int scmdTir)  {
+	public void setcmdTir(boolean scmdTir)  {
 	    cmdTir = scmdTir;
 	}	
 	

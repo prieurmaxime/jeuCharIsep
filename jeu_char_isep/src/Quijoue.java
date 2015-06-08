@@ -1,13 +1,14 @@
-
+/*
 public class Quijoue {
 
 	double nbaleatoire;
+	boolean afinidejouer;
 	
 	public Quijoue(){
 	
 	}
 	
-	public void quiCommence(player joueur1,player joueur2,player changeur){
+	public void quiCommence(player joue,player jouepas,player changeur){
 		nbaleatoire = Math.random();
 		
 		
@@ -15,14 +16,22 @@ public class Quijoue {
 			
 		}
 		else{
-			joueur1=changeur;
-			joueur2=joueur1;
-			joueur2=changeur;
+			changeur = joue;
+			joue=jouepas;
+			jouepas=changeur;
 		}
 	}
 	
-	public void changementdejoueur(int fin,player joueur1,player joueur2,player changeur){
+	public void changementdejoueur(destructionTerrain destru,player joue,player jouepas,player changeur){
+		
+		afinidejouer = destru.getafinidejouer();
+		if(afinidejouer){
+			player changeur = joue.clone();
+			joue = jouepas;
+			jouepas = changeur;
+			afinidejouer=!afinidejouer;
+		}
 		
 	}
 	
-}
+}*/
